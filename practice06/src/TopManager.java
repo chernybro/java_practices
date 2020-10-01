@@ -13,13 +13,18 @@ public class TopManager implements EmployeePosition {
     }
 
     @Override
+    public double getCompanyIncome() {
+        return 0;
+    }
+
+    @Override
     public String getJobTitle() {
         return "Top-Manager";
     }
 
     @Override
     public double calcSalary(double baseSalary) {
-        if (company.getIncome() > 10) {
+        if (company.getIncome() > 10000000) {
             return finalSalary = baseSalary*2.5;
         } else {
             return finalSalary = baseSalary;

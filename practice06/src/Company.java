@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Company {
     private List<Employee> employees;
+    private double income;
 
 
     public List<Employee> getEmployees() {
@@ -26,11 +27,19 @@ public class Company {
         employees.remove(pos);
     }
 
-    public int getIncome() {
-        Random r = new Random();
-        return r.nextInt(20);
+    public double calcIncome() {
+        income = 0;
+        for (Employee employee : employees) {
+            if (employee.position.getJobTitle().equals("Manager")) {
+                income += employee.position.getCompanyIncome();
+            }
+        }
+        return income;
     }
 
+    public double getIncome() {
+        return income;
+    }
 
     List<Employee> getTopSalaryStaff(int count) {
         ArrayList<Employee> highList= new ArrayList<Employee>();
@@ -103,18 +112,6 @@ public class Company {
             }
         }
         Company company = new Company();
-        for (int i = 0; i < 10; i++) {
-            if (i%3 == 1) {
-                emp = new Employee("Alex", "Ivanov", new TopManager(company));
-                hair(emp);
-            } else if (i%3 == 2) {
-                emp = new Employee("Fedor", "Pushkin", new TopManager(company));
-                hair(emp);
-            } else {
-                emp = new Employee("Maria", "Pavlova", new TopManager(company));
-                hair(emp);
-            }
-        }
 
         for (int i = 0; i < 80; i++) {
             if (i%3 == 1) {
@@ -128,6 +125,22 @@ public class Company {
                 hair(emp);
             }
         }
+        calcIncome();
+
+        for (int i = 0; i < 10; i++) {
+            if (i%3 == 1) {
+                emp = new Employee("Alex", "Ivanov", new TopManager(company));
+                hair(emp);
+            } else if (i%3 == 2) {
+                emp = new Employee("Fedor", "Pushkin", new TopManager(company));
+                hair(emp);
+            } else {
+                emp = new Employee("Maria", "Pavlova", new TopManager(company));
+                hair(emp);
+            }
+        }
+
+
     }
 
     public void calcAll(double baseSalary) {

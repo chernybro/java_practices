@@ -6,6 +6,11 @@ public class Operator implements EmployeePosition {
     }
 
     @Override
+    public double getCompanyIncome() {
+        return 0;
+    }
+
+    @Override
     public String getJobTitle() {
         return "Operator";
     }

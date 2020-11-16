@@ -1,0 +1,4 @@
+нояб. 13, 2020 10:17:03 PM Loader main
+INFO:  fdfd
+нояб. 13, 2020 10:17:03 PM Loader main
+WARNING: Message with warning

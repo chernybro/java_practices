@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Loader {
     public static void main(String[] args) {
-        final String name = "C:\\Users\\Cherny\\Desktop\\education\\2-ой курс\\JAVA\\movementList.csv";
+        final String name = "data\\movementList.csv";
 
         String line = "";
         String cvsSplitBy = ",";

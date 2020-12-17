@@ -3,22 +3,32 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Loader3 {
     public static void main(String[] args) {
+        Logger logger = logFile();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите копируемый каталог");
+        //System.out.println("Введите копируемый каталог");
+        logger.log(Level.INFO,"Введите копируемый каталог");
         String source = scanner.nextLine();
-
-        System.out.println("Куда вставить?");
+        logger.log(Level.INFO, "source = " + source);
+        //System.out.println("Куда вставить?");
+        logger.log(Level.INFO,"Куда вставить?");
         String destination = scanner.nextLine();
+        logger.log(Level.INFO, "destination = " + destination);
 
         try {
             copyDirectory(new File(source), new File(destination + source.substring(source.lastIndexOf("\\"))));
-            System.out.println("Копирование произошло...");
+            //System.out.println("Копирование произошло...");
+            logger.log(Level.INFO, "Копирование произошло...");
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("что то не так, бро");
+            //
+            logger.log(Level.WARNING, "smth got wrong");
         }
     }
 
@@ -57,6 +67,21 @@ public class Loader3 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    public static Logger logFile() {
+        Logger logger = Logger.getLogger(Loader3.class.getName());
+        FileHandler fh;
+
+        try {
+            fh = new FileHandler("log\\log.txt");
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+            return logger;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

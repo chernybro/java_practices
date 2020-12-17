@@ -1,4 +1,10 @@
-нояб. 13, 2020 10:17:03 PM Loader main
-INFO:  fdfd
-нояб. 13, 2020 10:17:03 PM Loader main
-WARNING: Message with warning
+нояб. 23, 2020 3:37:56 PM Loader3 main
+INFO: Введите копируемый каталог
+нояб. 23, 2020 3:38:11 PM Loader3 main
+INFO: source = D:\javaTest\1\33
+нояб. 23, 2020 3:38:11 PM Loader3 main
+INFO: Куда вставить?
+нояб. 23, 2020 3:38:17 PM Loader3 main
+INFO: destination = D:\
+нояб. 23, 2020 3:38:17 PM Loader3 main
+INFO: Копирование произошло...
